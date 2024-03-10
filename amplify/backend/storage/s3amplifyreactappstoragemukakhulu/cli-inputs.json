@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3amplifyreactappstoragemukakhulu",
+  "bucketName": "amplify-react-app-storage-mukakhulu",
+  "policyUUID": "df3c84c9",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
