@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import "@aws-amplify/ui-react/styles.css";
 //import AWS from 'aws-sdk';
-import { uploadData } from 'aws-amplify/storage';
+import { uploadData,list } from 'aws-amplify/storage';
 
 import {
   withAuthenticator,
@@ -11,11 +11,11 @@ import {
   Image,
   View,
   Card,
+  Input
 } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
-import awsExports from "./aws-exports";
+
 import { useState } from "react";
-Amplify.configure(awsExports);
 
 function App({ signOut}) {
 
@@ -41,6 +41,29 @@ function App({ signOut}) {
     }
   }
 
+/* Listing 
+async function listObject() {
+  
+  try {
+  const response = await list({
+    prefix: 'private/',
+    options: {
+      listAll: true
+    }
+  });
+  // render list items from response.items
+} catch (error) {
+  console.log('Error ', error);
+}}
+  
+//Call list
+
+
+useEffect(() => {
+  listObjects();
+}, []);
+*/
+
   return (
 
     <View className="App">
@@ -53,11 +76,11 @@ function App({ signOut}) {
       </Card>
 
       <div>
-        <input type="file" accept={[".csv",".docx",".txt"]} onChange={(e)=> setFileData(e.target.files[0])}/>
+        <Input type="file" accept={[".csv",".docx",".txt"]} onChange={(e)=> setFileData(e.target.files[0])}/>
         </div>
         
         <div>
-          <button onClick={uploadFile} width="320" height="320">Upload File</button>
+          <Button onClick={uploadFile} width="320" height="320">Upload File</Button>
         </div>
 
       {fileStatus ? "File uploaded successfully" : ""}
