@@ -28,6 +28,8 @@ function App({ signOut}) {
    listObjects();
  }, []);
 
+
+ // list objects
  async function listObjects(){
   try {
     const objectList = await list({
